@@ -31,32 +31,27 @@ void addDFSEdge(DFSGraph* graph, int src, int dest) {
     graph->adjacencyList[dest] = newNode;
 }
 
-static void DFSUtil(DFSGraph* graph, int vertex, FILE* fp) {
+static void DFSUtil(DFSGraph* graph, int vertex) {
     graph->visited[vertex] = true;
-    fprintf(fp, "%d ", vertex);
+    printf("%d ", vertex);
 
     DFSNode* temp = graph->adjacencyList[vertex];
     while(temp) {
         if(!graph->visited[temp->vertex]) {
-            DFSUtil(graph, temp->vertex, fp);
+            DFSUtil(graph, temp->vertex);
         }
         temp = temp->next;
     }
 }
 
 void DFS(DFSGraph* graph, int startVertex) {
-    FILE* fp = fopen("dfs_output.txt", "w");
-    if(!fp) {
-        printf("Failed to open output file\n");
-        return;
-    }
-
     for(int i = 0; i <= graph->vertices; i++) {
         graph->visited[i] = false;
     }
 
-    DFSUtil(graph, startVertex, fp);
-    fclose(fp);
+    printf("\nDFS Traversal starting from vertex %d:\n", startVertex);
+    DFSUtil(graph, startVertex);
+    printf("\n");
 }
 
 void freeDFSGraph(DFSGraph* graph) {
