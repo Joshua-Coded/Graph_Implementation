@@ -4,8 +4,8 @@ This project contains separate implementations of DFS and BFS algorithms for gra
 
 ## Project Structure
 ```
-graph_traversal/
-├── dfs_project/
+Graph_Implementation/
+├── dfs/
 │   ├── include/
 │   │   └── dfs.h
 │   ├── src/
@@ -13,7 +13,7 @@ graph_traversal/
 │   │   └── main.c
 │   ├── Makefile
 │   └── README.md
-├── bfs_project/
+├── bfs/
 │   ├── include/
 │   │   └── bfs.h
 │   ├── src/
@@ -28,14 +28,14 @@ graph_traversal/
 
 ### For DFS Implementation
 ```bash
-cd dfs_project
+cd dfs
 make
 ./build/dfs_traversal
 ```
 
 ### For BFS Implementation
 ```bash
-cd bfs_project
+cd bfs
 make
 ./build/bfs_traversal
 ```
@@ -44,12 +44,6 @@ make
 Both implementations have:
 - Time Complexity: O(V + E)
 - Space Complexity: O(V)
-
-## Related Algorithms
-- Shortest Path Finding
-- Connected Components
-- Cycle Detection
-- Topological Sorting
 
 ## Requirements
 - GCC compiler
